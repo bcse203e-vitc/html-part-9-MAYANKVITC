@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="programmm7.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Service</h1>
+        <p>Book your appointment with ease</p>
+    </header>
+
+    <section class="services">
+        <div class="service">
+            <h2>Doctor Consultation</h2>
+            <p>Get medical advice from our experts.</p>
+            <button class="book-btn" onclick="openModal('Doctor Consultation')">Book Appointment</button>
+        </div>
+        <div class="service">
+            <h2>Salon Booking</h2>
+            <p>Schedule your beauty treatments with ease.</p>
+            <button class="book-btn" onclick="openModal('Salon Booking')">Book Appointment</button>
+        </div>
+        <div class="service">
+            <h2>Car Service</h2>
+            <p>Get your car serviced professionally.</p>
+            <button class="book-btn" onclick="openModal('Car Service')">Book Appointment</button>
+        </div>
+    </section>
+
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Book Appointment for <span id="serviceName"></span></h2>
+            <form id="appointmentForm" onsubmit="validateForm(event)">
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                <div class="error" id="fullNameError"></div>
+
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <div class="error" id="emailError"></div>
+
+                <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+                <div class="error" id="phoneError"></div>
+
+                <select id="service" name="service" required>
+                    <option value="Doctor Consultation">Doctor Consultation</option>
+                    <option value="Salon Booking">Salon Booking</option>
+                    <option value="Car Service">Car Service</option>
+                </select>
+
+                <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+                <textarea id="specialRequests" name="specialRequests" placeholder="Special Requests (optional)"></textarea>
+
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required> I agree to the terms and conditions
+                </label>
+                <div class="error" id="termsError"></div>
+
+                <button type="submit">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Appointment Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeConfirmationModal()">&times;</span>
+            <h2>Appointment Confirmed</h2>
+            <p id="confirmationMessage"></p>
+            <button onclick="closeConfirmationModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Booked Appointments Section -->
+    <section id="appointmentsSection">
+        <h2>Your Booked Appointments</h2>
+        <input type="text" id="searchInput" placeholder="Search appointments..." onkeyup="filterAppointments()">
+        <table id="appointmentsTable">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="programmm7.js"></script>
+</body>
+</html>
