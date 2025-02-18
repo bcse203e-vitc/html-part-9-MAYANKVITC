@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="programmm3.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Welcome to Our Services</h1>
+            <p>Your one-stop destination for various services.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="services">
+            <div class="service">
+                <h2>Doctor Consultation</h2>
+                <p>Get expert medical advice from the comfort of your home.</p>
+                <button class="book-btn" onclick="openModal('Doctor Consultation')">Book Appointment</button>
+            </div>
+
+            <div class="service">
+                <h2>Salon Booking</h2>
+                <p>Get your beauty treatments at home or in our salon.</p>
+                <button class="book-btn" onclick="openModal('Salon Booking')">Book Appointment</button>
+            </div>
+
+            <div class="service">
+                <h2>Car Service</h2>
+                <p>Need car maintenance? We’re here to help with top-quality service.</p>
+                <button class="book-btn" onclick="openModal('Car Service')">Book Appointment</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <!-- Modal Form -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Book Appointment for <span id="serviceName"></span></h2>
+            <form id="appointmentForm" onsubmit="return validateForm(event)">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error" id="fullNameError"></div>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" maxlength="10" required pattern="\d{10}">
+                <div class="error" id="phoneError"></div>
+
+                <label for="service">Select Service</label>
+                <select id="service" name="service" required>
+                    <option value="Doctor Consultation">Doctor Consultation</option>
+                    <option value="Salon Booking">Salon Booking</option>
+                    <option value="Car Service">Car Service</option>
+                </select>
+
+                <label for="dateTime">Preferred Date & Time</label>
+                <input type="datetime-local" id="dateTime" name="dateTime" required>
+                <div class="error" id="dateTimeError"></div>
+
+                <label for="specialRequests">Special Requests (Optional)</label>
+                <textarea id="specialRequests" name="specialRequests"></textarea>
+
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to the terms and conditions
+                </label>
+                <div class="error" id="termsError"></div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="programmm3.js"></script>
+</body>
+</html>
