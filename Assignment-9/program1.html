@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="programmm1.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Our Services</h1>
+            <p>Your one-stop destination for various services.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="services">
+            <div class="service">
+                <h2>Doctor Consultation</h2>
+                <p>Get expert medical advice from the comfort of your home.</p>
+                <button class="book-btn" onclick="bookAppointment('Doctor Consultation')">Book Appointment</button>
+            </div>
+
+            <div class="service">
+                <h2>Salon Booking</h2>
+                <p>Get your beauty treatments at home or in our salon.</p>
+                <button class="book-btn" onclick="bookAppointment('Salon Booking')">Book Appointment</button>
+            </div>
+
+            <div class="service">
+                <h2>Car Service</h2>
+                <p>Need car maintenance? We’re here to help with top-quality service.</p>
+                <button class="book-btn" onclick="bookAppointment('Car Service')">Book Appointment</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js">
+        function bookAppointment(service) {
+    alert(`You have selected to book an appointment for ${service}.`);
+}
+
+    </script>
+</body>
+</html>
